@@ -1,7 +1,17 @@
 import _ from 'lodash';
 import Highcharts from 'highcharts';
 import './main.css';
-import Bg from './assets/bg.jpeg';
+import dummyData from './data/dummy.json'
+
+import printMe from './print.js';
+
+console.log("dummyData");
+console.log(dummyData);
+
+if (process.env.NODE_ENV !== 'production') {
+       console.log('Looks like we are in development mode!');
+    }
+    
 
 
 Highcharts.chart('container', {
@@ -70,9 +80,14 @@ Highcharts.chart('container', {
 
 function component() {
     var element = document.createElement('div');
+    var btn = document.createElement('button');
   
     // Lodash, currently included via a script, is required for this line to work
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = printMe;
+    element.appendChild(btn);
   
     return element;
   }
