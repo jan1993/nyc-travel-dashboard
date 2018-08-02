@@ -8,7 +8,8 @@ const path = require('path');
 module.exports = {
     entry: {
        app: __dirname + "/src/index.js",
-       print: __dirname +'/src/print.js'
+       print: __dirname +'/src/print.js',
+       another: __dirname + '/src/another-module.js'
     },
     output: {
         filename: '[name].bundle.js',

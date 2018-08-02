@@ -7,15 +7,21 @@ const path = require('path');
 
 module.exports = {
     entry: {
-       app: __dirname + "/src/index.js",
-       print: __dirname +'/src/print.js'
+        app: __dirname + "/src/index.js",
+        print: __dirname + '/src/print.js',
+        another: __dirname + '/src/another-module.js'
     },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
-    devtool: 'inline-source-map',
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
+    devtool: 'source-map',
     module: {
         rules: [{
                 test: /\.css$/,
@@ -38,5 +44,5 @@ module.exports = {
             template: __dirname + '/src/index.html'
         })
     ],
-    mode: "production",    
+    mode: "production",
 };
