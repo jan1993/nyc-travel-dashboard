@@ -39,16 +39,12 @@ module.exports = {
             }
         ]
     },
-    devServer: { // configuration for webpack-dev-server
-        contentBase: './dist', //source of static assets
-        port: 8080, // port to run dev-server
-    },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: __dirname + '/src/index.html'
         })
     ],
-    mode: "development",
+    mode: "production",
     watch: false
 };
