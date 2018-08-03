@@ -1,7 +1,6 @@
 import ImageMap from './components/Map/ImageMap'
 
-import dummyData from './data/dummy.json'
-import geoData from './data/imagesTakenAll.json'
+import geoData from './data/ImagesTakenAll.json'
 import './styles/app.scss';
 
 if (process.env.NODE_ENV !== 'production') {
