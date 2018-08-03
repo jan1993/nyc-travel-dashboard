@@ -2,18 +2,11 @@ import ImageMap from './components/Map/ImageMap'
 
 import dummyData from './data/dummy.json'
 import geoData from './data/imagesTakenAll.json'
-
-
-
 import './styles/app.scss';
-import {
-    debug
-} from 'util';
 
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
-
 
 /*
  * Keyboard scrolling logic
@@ -65,7 +58,7 @@ function updateNavBar(scroll_pos) {
     navItems[currentSection].classList.add('nav-item-active');
 }
 
-// Scroll Event
+// Scroll Event Listener
 window.addEventListener('scroll', function (e) {
     // Throttle scroll event since it is fired very often
     last_known_scroll_position = window.scrollY;
@@ -75,12 +68,14 @@ window.addEventListener('scroll', function (e) {
             updateNavBar(last_known_scroll_position);
             ticking = false;
         });
-
         ticking = true;
     }
 });
 
 
+/*
+ * MAP - All images mapped
+ */
 
 const imageMapSettings = {
     container: 'container1',
@@ -95,13 +90,3 @@ geoData.features = geoData.features.map((e) => {
     return e;
 })
 ImageMapAll.createImageMap(geoData);
-
-// const WalkingMap = new Map('container2');
-// WalkingMap.createMap(geoData);
-
-
-console.log("dummyData");
-console.log(dummyData);
-
-
-// const ripple = new MDCRipple(document.querySelector('.mdc-button'));

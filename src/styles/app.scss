@@ -1,5 +1,8 @@
-@import 'theme';
 @import "@material/button/mdc-button";
+
+@import 'theme';
+@import 'animation';
+
 * {
   box-sizing: border-box;
 }
@@ -21,7 +24,9 @@ section {
   &:nth-of-type(2n) {
     background-color: $secondary-color;
   }
-} // Section specific classes
+} 
+
+// Section specific classes
 .intro {
   height: 100vh;
   background-image: url('../assets/head.jpg');
@@ -35,9 +40,32 @@ section {
 }
 
 .scroll-hint {
-  text-align: center;
+  // background-color: rgba( $primary-color-light, 0.5);
+  color: $primary-color-text;
+  
   position: absolute;
+
+  text-align: center;
+  text-transform: uppercase;
+
   bottom: 0;
+  right: 50%;
+    
+  height: 40px;
+  width: 200px;  
+
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  
+  margin-top: 15px;
+  margin-right: -100px;
+
+  // animation: mdc-animation-enter(bounce, 2500ms);
+  @include animation-name(bounce);
+  @include animation-duration(2s);
+  @include animation-iteration-count(infinite);
+  @include animation-direction(alternate);
 }
 
 .content {
@@ -52,11 +80,7 @@ h1 {
   font-weight: 300;
 }
 
-p {
-  font-size: 1.5em;
-  font-weight: 500;
-  color: #C3CAD9;
-}
+
 
 a {
   font-weight: 700;
