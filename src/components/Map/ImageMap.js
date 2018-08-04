@@ -24,7 +24,10 @@ class ImageMap extends Map {
                         property: "unix",
                         colorSpace: "rgb",
                         type: "exponential",
-                        stops: [[1530218767000,"#63a3c1"], [1530876656610,"#0f1f27"]]
+                        stops: [
+                            [1530218767000, "#63a3c1"],
+                            [1530876656610, "#0f1f27"]
+                        ]
                     }
                 }
             });

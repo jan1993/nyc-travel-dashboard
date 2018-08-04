@@ -1,8 +1,7 @@
 @import "@material/button/mdc-button";
-
 @import 'theme';
+@import 'chart';
 @import 'animation';
-
 * {
   box-sizing: border-box;
 }
@@ -24,7 +23,7 @@ section {
   &:nth-of-type(2n) {
     background-color: $secondary-color;
   }
-} 
+}
 
 // Section specific classes
 .intro {
@@ -42,26 +41,18 @@ section {
 .scroll-hint {
   // background-color: rgba( $primary-color-light, 0.5);
   color: $primary-color-text;
-  
   position: absolute;
-
   text-align: center;
   text-transform: uppercase;
-
   bottom: 0;
   right: 50%;
-    
   height: 40px;
-  width: 200px;  
-
+  width: 200px;
   padding-top: 5px;
   padding-left: 15px;
   padding-right: 15px;
-  
   margin-top: 15px;
-  margin-right: -100px;
-
-  // animation: mdc-animation-enter(bounce, 2500ms);
+  margin-right: -100px; // animation: mdc-animation-enter(bounce, 2500ms);
   @include animation-name(bounce);
   @include animation-duration(2s);
   @include animation-iteration-count(infinite);
@@ -76,11 +67,27 @@ section {
 h1 {
   font-size: 3em;
   display: block;
-  color: white;
   font-weight: 300;
 }
 
+h2 {
+  font-size: 2em;
+  display: block;
+  font-weight: 300;
+}
 
+section h1,
+h2 {
+  color: $primary-color-text;
+}
+
+section:nth-of-type(2n) h1 {
+  color: $secondary-color-text;
+}
+
+section:nth-of-type(2n) h2 {
+  color: $secondary-color-text;
+}
 
 a {
   font-weight: 700;
@@ -106,11 +113,12 @@ footer {
   }
 }
 
-body {
-  // background: url('../assets/bg.jpeg');
+#map-container-1 {
+  width: 95%;
+  height: 75vh;
+  margin: 0 auto
 }
-
-#container1 {
+#chart-container-1 {
   width: 95%;
   height: 75vh;
   margin: 0 auto
@@ -123,16 +131,25 @@ body {
   margin: 0 auto
 }
 
+.image-grid {
+  width: 95%;
+  height: 75vh;
+  margin: 0 auto
+}
+
 .side-nav {
   background-color: rgba( $primary-color-light, 0.2);
   position: fixed;
   top: 50%;
   margin-top: -10vh;
+  margin-right: 15px;
   height: 20vh;
   right: 0;
   padding-right: 15px;
   padding-left: 15px;
-  min-width: 125px;
+  width: 150px;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .side-nav:hover {
@@ -140,21 +157,21 @@ body {
 }
 
 .side-nav:hover .nav-item {
-  opacity: 0.8;  
+  opacity: 0.8;
 }
 
 .nav-item {
   cursor: pointer;
   color: $primary-color-text;
   opacity: 0.4;
-} 
-
-.nav-item:hover{
-  opacity: 1;
-  font-weight: bolder;  
 }
 
-.nav-item-active {  
+.nav-item:hover {
+  opacity: 1;
+  font-weight: bolder;
+}
+
+.nav-item-active {
   opacity: 1;
   font-weight: bold;
 }

@@ -1,6 +1,8 @@
-import ImageMap from './components/Map/ImageMap'
+import ImageMap from './components/Map/ImageMap';
+import Chart from './components/Chart/Chart';
+import chartConfig from './components/Chart/ChartConfig';
 
-import geoData from './data/ImagesTakenAll.json'
+import geoData from './data/ImagesTakenAll.json';
 import './styles/app.scss';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -77,7 +79,7 @@ window.addEventListener('scroll', function (e) {
  */
 
 const imageMapSettings = {
-    container: 'container1',
+    container: 'map-container-1',
     style: 'mapbox://styles/mapbox/streets-v9',
     center: [-73.98938, 40.73061],
     zoom: 12,
@@ -89,3 +91,14 @@ geoData.features = geoData.features.map((e) => {
     return e;
 })
 ImageMapAll.createImageMap(geoData);
+
+
+/*
+ * CHART 
+ */
+
+const StepChart = new Chart("chart-container-1");
+StepChart.createChart(chartConfig.stepChart)
+
+const StepChart2 = new Chart("chart-container-2");
+StepChart2.createChart(chartConfig.stepChart)
