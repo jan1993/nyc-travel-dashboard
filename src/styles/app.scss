@@ -2,6 +2,7 @@
 @import 'theme';
 @import 'chart';
 @import 'animation';
+
 * {
   box-sizing: border-box;
 }
@@ -86,6 +87,13 @@ section:nth-of-type(2n) h1 {
 }
 
 section:nth-of-type(2n) h2 {
+  color: $secondary-color-text;
+}
+
+.section-text {
+  color: $primary-color-text;
+}
+section:nth-of-type(2n) .section-text {
   color: $secondary-color-text;
 }
 
@@ -182,3 +190,5 @@ footer {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
+

@@ -1,13 +1,23 @@
 import ImageMap from './components/Map/ImageMap';
+import Map from './components/Map/MultiLayerMap';
+
 import Chart from './components/Chart/Chart';
 import chartConfig from './components/Chart/ChartConfig';
 
+import dashboardConfig from './config/dashboard-config.json';
 import geoData from './data/ImagesTakenAll.json';
 import './styles/app.scss';
 
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
+
+
+/* 
+ * Set-Up site
+ */
+document.querySelector("#title").textContent = dashboardConfig.title;
+document.querySelector("#subtitle").textContent = dashboardConfig.subtitle;
 
 /*
  * Keyboard scrolling logic
@@ -85,12 +95,42 @@ const imageMapSettings = {
     zoom: 12,
     scrollZoom: false,
 }
-const ImageMapAll = new ImageMap(imageMapSettings);
 geoData.features = geoData.features.map((e) => {
     e.properties.unix = new Date(e.properties.date).getTime()
     return e;
 })
-ImageMapAll.createImageMap(geoData);
+
+const ImageMapAll = new Map(imageMapSettings);
+
+const sources = [{
+    name: "geo",
+    src: {
+        "type": "geojson",
+        "data": geoData
+    }
+}];
+const layers = [{
+    name: "imagePointLayer",
+    layer: {
+        "id": "point",
+        "source": "geo",
+        "type": "circle",
+        "paint": {
+            "circle-radius": 3,
+            "circle-color": {
+                property: "unix",
+                colorSpace: "rgb",
+                type: "exponential",
+                stops: [
+                    [1530218767000, "#63a3c1"],
+                    [1530876656610, "#0f1f27"]
+                ]
+            }
+        }
+    }
+}];
+
+ImageMapAll.createLayerMap(sources, layers);
 
 
 /*
