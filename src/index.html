@@ -7,74 +7,74 @@
 </head>
 
 <body>
-
-  <section id="intro" class="intro">
-    <div class="content">
-      <h1 id="title">New York City 2018</h1>
-      <h2 id="subtitle">Trip Dashboard</h2>
-      <div class="scroll-hint">
-        Scroll Down (j/k)
+  <div id="sections">
+    <section id="intro" class="intro">
+      <div class="content">
+        <h1 id="title">New York City 2018</h1>
+        <h2 id="subtitle">Trip Dashboard</h2>
+        <div class="scroll-hint">
+          Scroll Down (j/k)
+        </div>
       </div>
-    </div>
+    </section>
 
-  </section>
-
-  <section>
-    <div id="photos-taken" class="content">
-      <h1>Where did I took Photos?</h1>
-      <div id="map-container-1"></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="content">
-      <h1>Top Of The Rock</h1>
-      <div class="image-grid">
-        <img height="auto" width="100%" src="http://res.cloudinary.com/dvnincysz/image/upload/c_scale,q_90,w_1920/v1533304606/nyc-dashboard/binoculars.jpg">
+    <section>
+      <div id="photos-taken" class="content">
+        <h1>Where did I took Photos?</h1>
+        <div id="map-container-1"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="content">
-      <h1>DUMBO</h1>
-      <div class="image-grid">
-
+    <section>
+      <div class="content">
+        <h1>Top Of The Rock</h1>
+        <div class="image-grid">
+          <img height="auto" width="100%" src="http://res.cloudinary.com/dvnincysz/image/upload/c_scale,q_90,w_1920/v1533304606/nyc-dashboard/binoculars.jpg">
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div id="photos-taken" class="content">
-      <h1>How much did I walk?</h1>
-      <div id="chart-container-1"></div>
-    </div>
-  </section>
+    <section>
+      <div class="content">
+        <h1>DUMBO</h1>
+        <div class="image-grid">
 
-  <section>
-    <div id="photos-taken" classs="content">
-      <h1>How much did I walk? 2</h1>
-      <div id="chart-container-2"></div>
-    </div>
-  </section>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div id="photos-taken" class="content">
+        <h1>How much did I walk?</h1>
+        <div id="chart-container-1"></div>
+      </div>
+    </section>
+
+    <section>
+      <div id="photos-taken" classs="content">
+        <h1>How much did I walk? 2</h1>
+        <div id="chart-container-2"></div>
+      </div>
+    </section>
 
 
-  <section id="about" class="end">
-    <div class="content">
-      <h1>About this Project:</h1>
-      <p class="section-text">
-        <strong>Jan Gottweiß</strong>
-        <br> TM70303 Grundlagen Web Engineering
-        <br>
+    <section id="about" class="end">
+      <div class="content">
+        <h1>About this Project:</h1>
+        <p class="section-text">
+          <strong>Jan Gottweiß</strong>
+          <br> TM70303 Grundlagen Web Engineering
+          <br>
 
-        <br> This trip dashboard showcase pictures as well as meta information like geo locations or step counts in a appealing
-        way.
-        <br><br>
-        <a href="https://github.com/jan1993/nyc-travel-dashboard ">GitHub</a>
-      </p>
-    </div>
-  </section>
-
+          <br> This trip dashboard showcase pictures as well as meta information like geo locations or step counts in a appealing
+          way.
+          <br>
+          <br>
+          <a href="https://github.com/jan1993/nyc-travel-dashboard ">GitHub</a>
+        </p>
+      </div>
+    </section>
+  </div>
   <aside class="side-nav">
     <div class="flex-nav">
       <div class="nav-item nav-item-active" data-index="0">- Intro -</div>
@@ -87,6 +87,30 @@
   <footer>
     Jan Gottweiß
   </footer>
+
+  <style>
+    howto-toggle-button {
+      background-color: #eee;
+      padding: 3px;
+      cursor: default;
+      user-select: none;
+      border: 1px solid #333;
+      border-radius: 3px;
+      transition: background-color .2s ease;
+    }
+
+    howto-toggle-button[pressed],
+    howto-toggle-button:not([disabled]):active {
+      background-color: #999;
+    }
+
+    howto-toggle-button[disabled] {
+      opacity: 0.35;
+    }
+  </style>
+
+  <howto-toggle-button>Press me</howto-toggle-button>
+
 </body>
 
 </html>

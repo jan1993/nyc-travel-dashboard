@@ -8,16 +8,45 @@ import dashboardConfig from './config/dashboard-config.json';
 import geoData from './data/ImagesTakenAll.json';
 import './styles/app.scss';
 
+
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
 
 
 /* 
- * Set-Up site
+ * Set-Up Sections
  */
-document.querySelector("#title").textContent = dashboardConfig.title;
-document.querySelector("#subtitle").textContent = dashboardConfig.subtitle;
+
+// Cover Page
+document.querySelector("#title").textContent = dashboardConfig.cover.title;
+document.querySelector("#subtitle").textContent = dashboardConfig.cover.subtitle;
+
+// Sections
+dashboardConfig.sections.forEach((sectionData) => {
+    const type = sectionData.type;
+    const newSection = document.querySelector("#sections").appendChild(document.createElement("section"));
+
+    const content = newSection.appendChild(document.createElement("div"));
+    content.classList.add('content');
+
+    content.appendChild(document.createElement("h1")).textContent = sectionData.title;
+
+    if (type === "map") {
+        // Only one data SOURCE is supported atm      
+        fetch(sectionData.data.sources[0].src.data)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                console.log(myJson);
+            });
+    }
+});
+
+
+
+
 
 /*
  * Keyboard scrolling logic
@@ -93,7 +122,7 @@ const imageMapSettings = {
     style: 'mapbox://styles/mapbox/streets-v9',
     center: [-73.98938, 40.73061],
     zoom: 12,
-    scrollZoom: false,
+    scrollZoom: false
 }
 geoData.features = geoData.features.map((e) => {
     e.properties.unix = new Date(e.properties.date).getTime()
