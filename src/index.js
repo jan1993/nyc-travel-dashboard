@@ -4,7 +4,6 @@ import Map from './components/Map/MultiLayerMap';
 import Chart from './components/Chart/Chart';
 import chartConfig from './components/Chart/ChartConfig';
 
-import dashboardConfig from './config/dashboard-config.json';
 import geoData from './data/ImagesTakenAll.json';
 import './styles/app.scss';
 
@@ -12,40 +11,6 @@ import './styles/app.scss';
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
-
-
-/* 
- * Set-Up Sections
- */
-
-// Cover Page
-document.querySelector("#title").textContent = dashboardConfig.cover.title;
-document.querySelector("#subtitle").textContent = dashboardConfig.cover.subtitle;
-
-// Sections
-dashboardConfig.sections.forEach((sectionData) => {
-    const type = sectionData.type;
-    const newSection = document.querySelector("#sections").appendChild(document.createElement("section"));
-
-    const content = newSection.appendChild(document.createElement("div"));
-    content.classList.add('content');
-
-    content.appendChild(document.createElement("h1")).textContent = sectionData.title;
-
-    if (type === "map") {
-        // Only one data SOURCE is supported atm      
-        fetch(sectionData.data.sources[0].src.data)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                console.log(myJson);
-            });
-    }
-});
-
-
-
 
 
 /*
@@ -168,6 +133,3 @@ ImageMapAll.createLayerMap(sources, layers);
 
 const StepChart = new Chart("chart-container-1");
 StepChart.createChart(chartConfig.stepChart)
-
-const StepChart2 = new Chart("chart-container-2");
-StepChart2.createChart(chartConfig.stepChart)

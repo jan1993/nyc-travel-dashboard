@@ -139,11 +139,21 @@ footer {
   margin: 0 auto
 }
 
-.image-grid {
+.image {
   width: 95%;
   height: 75vh;
   margin: 0 auto
 }
+
+.section-image {
+  height: 100%; width: 95%;
+} 
+
+.object-fit_fill { object-fit: fill }
+.object-fit_contain { object-fit: contain;}
+.object-fit_cover { object-fit: cover }
+.object-fit_none { object-fit: none }
+.object-fit_scale-down { object-fit: scale-down }
 
 .side-nav {
   background-color: rgba( $primary-color-light, 0.2);

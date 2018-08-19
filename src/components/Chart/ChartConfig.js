@@ -1,5 +1,3 @@
-import Highcharts from 'highcharts';
-
 const ChartConfigs = {
     stepChart: {
         chart: {
@@ -53,9 +51,9 @@ const ChartConfigs = {
             data: [23520, 20773, 20195, 15100, 21095, 15144, 17466, 19759],
         }, {            
             yAxis: 0,
-            name: "Photo Count",
+            name: "Photos Taken",
             stack: 'Photo',
-            data: [500, 600, 700, 500, 600, 700, 500, 600],
+            data: [681, 569, 403, 455, 612, 818, 385, 102],
         }]
     }
 }
