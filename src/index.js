@@ -1,4 +1,3 @@
-import ImageMap from './components/Map/ImageMap';
 import Map from './components/Map/MultiLayerMap';
 
 import Chart from './components/Chart/Chart';
@@ -7,14 +6,12 @@ import chartConfig from './components/Chart/ChartConfig';
 import geoData from './data/ImagesTakenAll.json';
 import './styles/app.scss';
 
-
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
 
-
 /*
- * Keyboard scrolling logic
+ *  Keyboard scrolling logic
  *  Scrolling is done via javascript and not via anchors
  *  the reason for that is keyboard navigation and smooth
  *  scrolling animations.
@@ -69,7 +66,6 @@ window.addEventListener('scroll', function (e) {
     last_known_scroll_position = window.scrollY;
     if (!ticking) {
         window.requestAnimationFrame(function () {
-
             updateNavBar(last_known_scroll_position);
             ticking = false;
         });
@@ -82,6 +78,7 @@ window.addEventListener('scroll', function (e) {
  * MAP - All images mapped
  */
 
+ // General map settings
 const imageMapSettings = {
     container: 'map-container-1',
     style: 'mapbox://styles/mapbox/streets-v9',
@@ -89,13 +86,17 @@ const imageMapSettings = {
     zoom: 12,
     scrollZoom: false
 }
+
+// Convert timestamp
 geoData.features = geoData.features.map((e) => {
     e.properties.unix = new Date(e.properties.date).getTime()
     return e;
 })
 
+// Create new Map Object
 const ImageMapAll = new Map(imageMapSettings);
 
+// Specific data driven map config
 const sources = [{
     name: "geo",
     src: {
@@ -124,6 +125,7 @@ const layers = [{
     }
 }];
 
+// Create layer based on the created map object
 ImageMapAll.createLayerMap(sources, layers);
 
 
@@ -131,5 +133,8 @@ ImageMapAll.createLayerMap(sources, layers);
  * CHART 
  */
 
+ // Create a new Chart object
 const StepChart = new Chart("chart-container-1");
+
+// Create a new chart with config
 StepChart.createChart(chartConfig.stepChart)

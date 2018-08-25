@@ -1,5 +1,7 @@
 import Highcharts from 'highcharts/js/highcharts';
 
+
+// Wrapper class for the Highcharts library
 class Chart {
     constructor(container) {
         this.container = container;

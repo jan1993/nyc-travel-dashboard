@@ -1,5 +1,8 @@
-import mapboxgl from 'mapbox-gl';
 import Map from './Map';
+
+
+// The MultiLayerMap extends the base map and allows us to add multiple layers to the map
+// The definition is based on the mapbox gl js data driven config objects
 
 class MultiLayerMap extends Map {
     constructor(settings) {
